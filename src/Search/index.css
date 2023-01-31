@@ -1,8 +1,9 @@
+html, body {
+  height: 100%;
+  background: #fcf7ec;
+}
 .search-result-container {
   background: #fcf7ec;
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
 }
 .search-result-title {
   width: 100vw;

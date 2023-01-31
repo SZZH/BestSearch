@@ -1,20 +1,42 @@
 .list-item-box {
   background: #fff;
-  width: 200px;
+  width: 18%;
   height: 250px;
-  margin-right: 10px;
+  margin-right: 1%;
+  margin-bottom: 10px;
   padding: 10px 0;
 }
+@media (max-width: 1400px) {
+  .search-list {
+    width: 100%;
+  }
+  .list-item-box {
+    width: 48%;
+    height: 350px;
+  }
+}
+@media (max-width: 600px) {
+  .list-item-box {
+    width: 100%;
+    height: 400px;
+  }
+}
 .list-item-box .list-item-title {
-  margin: 5px;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-bottom: 1%;
+  height: 10%;
 }
 .list-item-box .list-item-subTitle {
-  margin: 5px;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-bottom: 1%;
+  height: 10%;
   color: #bebebe;
 }
 .list-item-box .list-item-chart {
   width: 100%;
-  height: 180px;
+  height: 71%;
 }
 .list-item-box .list-item-bottom {
   display: flex;

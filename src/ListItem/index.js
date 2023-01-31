@@ -72,6 +72,12 @@ const ListItem = (props) => {
       ],
     };
     myChart.setOption(chartOption);
+
+    const redize = () => myChart.resize()
+    window.addEventListener('resize', redize);
+    return () => {
+      window.removeEventListener('resize', redize);
+    };
   }, [data]);
 
   const startMonth =
