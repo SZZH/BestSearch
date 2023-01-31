@@ -1,33 +1,22 @@
-import { useState } from 'react'
 import { useParams } from 'react-router-dom';
-import axios from 'axios'
 import { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux'
+import { useNavigate } from "react-router-dom";
+
+import { fetchData } from '../store/reducer'
 import './index.css'
 import SearchInput from '../SearchInput'
 import ListItem from '../ListItem'
 
 const Search = (props) => {
   const { keyword = '' } = useParams()
-  const [loading, setLoading] = useState(true)
-  const [data, setData] = useState([])
+  const navigateTo = useNavigate()
+  const loading = useSelector((state) => state.app.loading)
+  const data = useSelector((state) => state.app.data)
+  const dispatch = useDispatch()
 
   const update = () => {
-    setLoading(true)
-    axios({
-      url: 'http://3.141.23.218:5000/interview/keyword_search',
-      method: 'post',
-      data: {
-        login_token: 'INTERVIEW_SIMPLY2021',
-        search_phrase: keyword
-      }
-    })
-      .then((res) => {
-        const data = res.data.data
-        setData(data.product_trends)
-      })
-      .finally(() => {
-        setLoading(false)
-      })
+    dispatch(fetchData(keyword))
   }
 
   useEffect(() => {
@@ -37,7 +26,9 @@ const Search = (props) => {
   return (
     <div className='search-result-container'>
       <div className='search-result-title'>
-        <span><b>Best</b>Search</span>
+        <span onClick={() => {
+          navigateTo('/')
+        }}><b>Best</b>Search</span>
         <SearchInput defaultValue={keyword.replace('+', ' ')}/>
       </div>
       <div className='search-result-content'>

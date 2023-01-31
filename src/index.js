@@ -5,12 +5,15 @@ import {
   Route,
   Routes
 } from 'react-router-dom';
+import { Provider } from 'react-redux'
 import './index.css';
 import App from './App';
 import Search from './Search';
+import store from './store'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
+  <Provider store={store}>
     <Router>
       <Routes>
         <Route path="/" element={<App />}/>
@@ -18,4 +21,5 @@ root.render(
         <Route path="/search/" element={<Search/>} />
       </Routes>
     </Router>
+  </Provider>
 );

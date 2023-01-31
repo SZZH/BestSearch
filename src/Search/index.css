@@ -11,6 +11,7 @@
   font-size: 20px;
   display: flex;
   align-items: center;
+  cursor: pointer;
 }
 .search-result-title>span {
   margin-right: 10px;
